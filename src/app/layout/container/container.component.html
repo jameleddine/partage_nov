@@ -1,0 +1,90 @@
+<p>container works!</p>
+<label>Interpolation</label>
+<input class="form-control" value="{{containerTitle}}"/>
+<label>Property binding</label>
+<input class="form-control" [value]="containerTitle"/>
+
+<button class="btn btn-danger" (click)="calcule()"
+[disabled]="!statusButton">status btn {{!statusButton}} !!!</button>
+<hr>
+<button class="btn btn-danger" (click)="decrement()">-</button>
+{{count}}
+<button class="btn btn-info" (click)="increment()">+</button>
+<hr>
+<label>ngModel:</label>
+<input class="form-control" [(ngModel)]="user"/>
+<hr>
+<h3>Formulaire with ngModel</h3>
+<div class="form-group">
+    <label>Nom</label>
+    <input class="form-control" [(ngModel)]="name">
+</div>
+<div class="form-group">
+    <label>Email</label>
+    <input class="form-control" [(ngModel)]="email">
+</div>
+<div class="form-group">
+    <label>Phone</label>
+    <input class="form-control" [(ngModel)]="phone">
+</div>
+<div class="form-group">
+    <label>About</label>
+    <textarea class="form-control" [(ngModel)]="about" ></textarea>
+</div>
+<button class="btn btn-success" (click)="save()">Valider !!!</button>
+<span *ngIf="name!=''&&name!=undefined">{{userData|json}}</span>
+<hr>
+<ul>
+    <li *ngFor="let item of HEROES">{{item.name}}</li>
+</ul>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of HEROES" [ngClass]="{'red':item.id==1,'green':item.id==5,'black':item.id==2}">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<h3>Push and ngfor</h3>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>Nom</label>
+            <input class="form-control" [(ngModel)]="name">
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" [(ngModel)]="email">
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input class="form-control" [(ngModel)]="phone">
+        </div>
+        <button class="btn btn-info" (click)="addToArray()">Push</button>
+    </div>
+    <div class="col-sm-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

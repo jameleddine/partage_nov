@@ -1,0 +1,21 @@
+<form novalidate [formGroup]="myform">
+    <div class="form-group">
+        <label for="">Name</label>
+        <input class="form-control" formControlName="name">
+        <span class="danger" *ngIf="myform.controls.name.invalid && (myform.controls.name.dirty || myform.controls.name.touched)">Name invalid</span>
+    </div>
+    <div class="form-group">
+        <label for="">Email</label>
+        <input class="form-control" formControlName="email">
+        <span class="danger" *ngIf="myform.controls.email.invalid && 
+        (myform.controls.email.dirty || myform.controls.email.touched)">email invalid</span>
+
+    </div>
+    <div class="form-group">
+        <label for="">Password</label>
+        <input type="password" class="form-control" formControlName="password">
+        <span class="danger" *ngIf="myform.controls.password.invalid && (myform.controls.password.dirty || myform.controls.password.touched)">password invalid</span>
+
+    </div>
+    <button [disabled]='myform.invalid' class="btn btn-success" (click)="addUser()">Add</button>
+</form>

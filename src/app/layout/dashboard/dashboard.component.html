@@ -1,0 +1,44 @@
+<h1>{{"dashboard_title"|translate}}</h1>
+<h3>{{"dashboard_sub_title"|translate}}</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title:
+                <input class="form-control" [(ngModel)]="titleSearch">
+            </th>
+            <th></th>
+            <th>Contract:<select class="form-control" [(ngModel)]="contractSearch">
+                    <option value="cdd">CDD</option>
+                    <option value="cdi">CDI</option>
+                    <option value="sivp">SIVP</option>
+                </select>
+            </th>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Type de contrat</th>
+            <th>Salaire</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let post of resultats |recherche:titleSearch:contractSearch">
+            <td>{{post.title}}</td>
+            <td>{{post.description}}</td>
+            <td>{{post.contract_type}}</td>
+            <td>{{post.salaire}}</td>
+            <td>{{post.status}}</td>
+            <td>{{post.entry_date}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="delete(post)"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+                <button class="btn btn-info" (click)="edit(post)"><i class="fa fa-pencil-square-o"
+                        aria-hidden="true"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
