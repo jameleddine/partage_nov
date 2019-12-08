@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class RecherchePipe implements PipeTransform {
 
+  
   transform(items: any[], titleSearch: string, contractSearch: string){
     if (items && items.length){
       console.log(contractSearch)
